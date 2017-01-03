@@ -11,7 +11,5 @@ How to calculate Orion scores:
 >	--output-directory \<output_directory:temporary output files directory\> \  
 >	--workers \<num_workers>
 
-Orion regions can be calculated using getMCFRegions.R. Run:
+Orion regions can be calculated using getMCFRegions.R. For more information, run:
 >Rscript src/getMCFRegions.R --help
-
-For more information.
