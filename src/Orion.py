@@ -114,7 +114,7 @@ class OrionTask(SGEJobTask):
         description="the position to end calculating scores") 
     output_directory = luigi.Parameter(
         description="the directory to output to")
-    shared_tmp_dir = "/nfs/seqscratch09/orion_jobs"
+    shared_tmp_dir = "/tmp"
     full_check = luigi.BoolParameter(
         significant=False,
         description="test MD5 checksums of intermediate files instead of "
