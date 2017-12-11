@@ -22,7 +22,7 @@ cfg.read(os.path.join(os.path.dirname(
     "cfg/orion.cfg"))
 chromosomes = OrderedDict([[chromosome, int(length)] for chromosome, length in
                            cfg.items("chromosomes")])
-boundaries_regex = re.compile(cfg.get("atav", "boundaries"))
+
 # http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/data/
 # maintain sort order
 CHROMOSOME_LENGTHS = OrderedDict(
@@ -307,49 +307,6 @@ def mutation_rate_matrix(arg):
                 rate += float(fields[index])
             trinucleotides[codon] = rate
     return trinucleotides
-
-def atav_interval(arg):
-    """parse the ATAV formatted interval into genomic coordinates
-    """
-    m = boundaries_regex.match(arg)
-    if not m:
-        raise argparse.ArgumentTypeError(
-            "{arg} is not in the proper ATAV-defined format".format(arg=arg))
-    d = m.groupdict()
-    intervals = []
-    for interval_pair in d["intervals"].split(","):
-        intervals.append(
-            [int(position) for position in interval_pair.split("..")])
-    return (arg, d["chromosome"], intervals)
-
-def atav_intervals_file(arg):
-    """return the parsed ATAV-format intervals in the specified file or raise an
-    exception with all that aren't properly formatted
-    """
-    if not os.path.isfile(arg):
-        raise argparse.ArgumentTypeError(
-            "{arg} does not exist".format(arg=arg))
-    with open(arg) as input_intervals:
-        interval_lines = input_intervals.read().splitlines()
-    parsed_intervals = []
-    misformed_lines = []
-    for interval_line in interval_lines:
-        m = boundaries_regex.match(interval_line)
-        if not m:
-            misformed_lines.append(interval_line)
-        if misformed_lines:
-            continue
-        d = m.groupdict()
-        intervals = []
-        for interval_pair in d["intervals"].split(","):
-            intervals.append(
-                [int(position) for position in interval_pair.split("..")])
-        parsed_intervals.append((interval_line, d["chromosome"], intervals))
-    if misformed_lines:
-        raise argparse.ArgumentTypeError(
-            "the following lines do not match the ATAV-defined format:\n" +
-            "".join(misformed_lines))
-    return parsed_intervals
 
 def confirm_valid_numerical_argument(
     arg, arg_name, arg_type=int, min_value=0, max_value=sys.maxsize,
