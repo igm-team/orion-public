@@ -1,1 +1,1 @@
-The true_matrix.lis.pp file included in this directory is a tri-mer mutation rate matrix kindly provided by Drs. Shamil Sunyaev and Paz Polak of The Broad Institute of MIT and Harvard.
+The mutation_rate_by_trinucleotide_matrix.txt file included in this directory is a tri-mer mutation rate matrix kindly provided by Drs. Shamil Sunyaev and Paz Polak of The Broad Institute of MIT and Harvard.
