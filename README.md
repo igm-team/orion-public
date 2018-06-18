@@ -4,7 +4,7 @@ This repository contains the code used for the Orion methodology (http://bit.ly/
 ## Citation
 Gussow AB, Copeland BR, Dhindsa RS, Wang Q, Petrovski S, Majoros WH, Allen AS, Goldstein DB. Orion: Detecting regions of the human non-coding genome that are intolerant to variation using population genetics. PLoS ONE. 2017; 12(8): e0181604.
 
-## Perparation To Run Orion
+## Preparation To Run Orion
 We recommend using [conda](https://conda.io/docs/) to create an environment in which to run Orion. Orion requires Python 2.7.
 
 Orion relies on the [luigi](https://github.com/spotify/luigi) framework, with a couple of in-house modifications. Specifically, we added two new 
