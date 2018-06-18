@@ -10,7 +10,7 @@ We recommend using [conda](https://conda.io/docs/) to create an environment in w
 Orion relies on the [luigi](https://github.com/spotify/luigi) framework, with a couple of in-house modifications. Specifically, we added two new 
 parameter types, named InputFileParameter and OutputFileParameter.
 
-After instlling the luigi framework, you'll need too add these new parameter types to your luigi installation. Append the contents of src/luigi\_parameter\_extension.py to the existing parameter.py file within the installed luigi package (luigi/parameter.py):
+After installing the luigi framework, you'll need to add these new parameter types to your luigi installation. Append the contents of src/luigi\_parameter\_extension.py to the existing parameter.py file within the installed luigi package (luigi/parameter.py):
 
 >cat src/luigi\_parameter\_extension.py >> path/to/luigi/parameter.py
 
