@@ -1,3 +1,5 @@
+import os
+
 class InputFileParameter(Parameter):
     """
     Paramater whose value is an existing file.
